@@ -1,0 +1,426 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+// ============================================
+// ПЕРЕМЕННЫЕ
+// ============================================
+$color-primary: #4a7c59;
+$color-primary-dark: #3a6347;
+$color-text: #1a1a1a;
+$color-text-light: #666;
+$color-border: #ddd;
+$color-bg: #f0f2f5;
+$color-white: #fff;
+
+$radius: 8px;
+$radius-lg: 12px;
+
+$shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+// ============================================
+// БАЗА
+// ============================================
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: $color-bg;
+  color: $color-text;
+}
+
+// ============================================
+// ЭКРАН ЛОГИНА
+// ============================================
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+
+  &__form {
+    width: 100%;
+    max-width: 400px;
+    background: $color-white;
+    padding: 32px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  &__subtitle {
+    margin: 0 0 24px;
+    font-size: 14px;
+    color: $color-text-light;
+  }
+
+  &__field {
+    margin-bottom: 16px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    font-size: 14px;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 14px;
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: $radius;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: inherit;
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+}
+// ============================================
+// ЧАТ
+// ============================================
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  background: $color-white;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  &__logout {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: $color-white;
+    border: none;
+    border-radius: $radius;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__create {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  &__create-form {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  &__create-title {
+    margin: 0 0 8px;
+    font-size: 22px;
+  }
+
+  &__create-text {
+    margin: 0 0 20px;
+    font-size: 14px;
+    color: $color-text-light;
+  }
+
+  &__create-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    font-size: 16px;
+    margin-bottom: 12px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  &__create-submit {
+    width: 100%;
+    padding: 14px;
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: $radius;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+
+  &__error {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #efeae2;
+  }
+
+  &__empty {
+    text-align: center;
+    color: $color-text-light;
+    margin: auto;
+  }
+
+  &__input-form {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: $color-white;
+    border-top: 1px solid $color-border;
+  }
+
+  &__input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    font-size: 15px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  &__send {
+    padding: 12px 24px;
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: $radius;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background: $color-primary-dark;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// ============================================
+// СООБЩЕНИЯ
+// ============================================
+.message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+
+  &--incoming {
+    align-self: flex-start;
+    background: $color-white;
+  }
+
+  &--outgoing {
+    align-self: flex-end;
+    background: #d9fdd3;
+  }
+
+  &__text {
+    margin-bottom: 2px;
+  }
+
+  &__status {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: $color-text-light;
+  }
+  &__sender {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-primary;
+    margin-bottom: 4px;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  &__time {
+    font-size: 11px;
+    color: $color-text-light;
+  }
+}
