@@ -1,16 +1,97 @@
-# React + Vite
+# MAX Chat (GREEN-API)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-клиент для отправки и получения сообщений через GREEN-API (MAX).  
+Реализован на React + Vite + SCSS. Стилизован под веб-версию MAX.
 
-Currently, two official plugins are available:
+## 🔗 Демо
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[https://chat-max-api.vercel.app/](https://chat-max-api.vercel.app/)
 
-## React Compiler
+> ⚠️ **Важно:** Демо на Vercel **рекомендуется открывать через VPN**.  
+> Vercel может быть заблокирован некоторыми провайдерами в РФ.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Стек
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- SCSS (sass)
+- Axios
+- GREEN-API (HTTP API)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Возможности
+
+- Авторизация по ключам GREEN-API (`idInstance`, `apiTokenInstance`)
+- Создание нового чата по номеру телефона
+- Отправка текстовых сообщений
+- Получение входящих сообщений (опрос каждые 2 секунды)
+- Отображение имени отправителя и времени
+- Фильтрация сообщений по номеру телефона (сообщения из других чатов не попадают)
+- Статусы сообщений: ⏳ отправка, ✓ отправлено, ✗ ошибка
+- Тёмная тема в стиле MAX
+- Адаптив под мобильные
+
+## 🚀 Локальный запуск
+
+### 1. Клонировать репозиторий
+
+```bash
+git clone git@github.com:DmPe91/chat-max-api.git
+cd chat-max-api
+```
+
+### 2. Установить зависимости
+
+```bash
+npm install
+```
+
+### 3. Запустить dev-сервер
+
+```bash
+npm run dev
+```
+
+Открой [http://localhost:5173](http://localhost:5173)
+
+### 4. Собрать production-версию
+
+```bash
+npm run build
+```
+
+Готовые файлы появятся в папке `dist/`.
+
+## 🔑 Как пользоваться
+
+1. Зарегистрируйся на [green-api.com](https://green-api.com).
+2. Создай инстанс и авторизуй его (QR-код через MAX).
+3. Скопируй `idInstance` и `apiTokenInstance` из личного кабинета.
+4. Введи их в форму логина.
+5. Введи номер получателя в формате `79991234567` — создай чат.
+6. Пиши и получай сообщения.
+
+## 📂 Структура проекта
+
+```
+chat-max-api/
+├── src/
+│   ├── components/
+│   │   ├── Login.jsx        # Экран логина
+│   │   └── Chat.jsx         # Экран чата
+│   ├── services/
+│   │   └── greenApi.js      # Работа с GREEN-API
+│   ├── App.jsx
+│   ├── index.scss
+│   └── main.jsx
+├── vite.config.js
+└── package.json
+```
+
+## 🔒 Безопасность
+
+`idInstance` и `apiTokenInstance` — **пользовательские ключи**. Пользователь вводит их сам, поэтому они **видны в DevTools** и это **нормально**.  
+Для работы с **собственными** ключами (например, для продакшена) нужен серверный прокси, чтобы скрыть токен от клиента.
+
+## 📝 Лицензия
+
+MIT
