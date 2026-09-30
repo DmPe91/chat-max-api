@@ -17,46 +17,49 @@ export default function Login({ onLogin }) {
 
   return (
     <div className="login">
-      <form className="login__form" onSubmit={handleSubmit}>
-        <h1 className="login__title">GREEN-API Chat</h1>
+      <div className="login__card">
+        <div className="login__logo">
+          <span className="login__logo-icon">◎</span>
+          <span className="login__logo-text">MAX</span>
+        </div>
+
+        <h1 className="login__title">Введите данные GREEN-API</h1>
         <p className="login__subtitle">
-          Введите данные из личного кабинета GREEN-API
+          idInstance и apiTokenInstance из личного кабинета
         </p>
 
-        <div className="login__field">
-          <label className="login__label" htmlFor="idInstance">
-            idInstance
-          </label>
-          <input
-            className="login__input"
-            id="idInstance"
-            type="text"
-            value={idInstance}
-            onChange={(e) => setIdInstance(e.target.value)}
-            placeholder="1101000000"
-            required
-          />
-        </div>
+        <form className="login__form" onSubmit={handleSubmit}>
+          <div className="login__field">
+            <input
+              className="login__input"
+              type="text"
+              value={idInstance}
+              onChange={(e) => setIdInstance(e.target.value)}
+              placeholder="idInstance"
+              required
+            />
+          </div>
 
-        <div className="login__field">
-          <label className="login__label" htmlFor="apiTokenInstance">
-            apiTokenInstance
-          </label>
-          <input
-            className="login__input"
-            id="apiTokenInstance"
-            type="text"
-            value={apiTokenInstance}
-            onChange={(e) => setApiTokenInstance(e.target.value)}
-            placeholder="Вставьте токен"
-            required
-          />
-        </div>
+          <div className="login__field">
+            <input
+              className="login__input"
+              type="text"
+              value={apiTokenInstance}
+              onChange={(e) => setApiTokenInstance(e.target.value)}
+              placeholder="apiTokenInstance"
+              required
+            />
+          </div>
 
-        <button className="login__submit" type="submit">
-          Войти
-        </button>
-      </form>
+          <button className="login__submit" type="submit">
+            Продолжить
+          </button>
+        </form>
+
+        <p className="login__footer">
+          Нажимая «Продолжить», вы принимаете условия использования
+        </p>
+      </div>
     </div>
   );
 }

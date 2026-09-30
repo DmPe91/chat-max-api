@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Базовый URL GREEN-API
-const API_URL = "https://3100.api.green-api.com";
+const API_URL = "https://api.green-api.com";
 
 /**
  * Создает экземпляр axios с базовым URL и credentials
